@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  alexnet-container:
+    container_name: alexnet-container
+    build:
+      context: .
+      dockerfile: Dockerfile.tensorflow
+    volumes:
+      - /home/vagrant/ml-scripts/data/cats_dogs_light:/home/data/cats_dogs_light
+      - $PWD:/home
+    command: >
+        bash -c "python3 /home/alex_net_tf.py"
+
+    
+  # tty: true
