@@ -68,9 +68,11 @@ class AlexNetArchitecture(tf.keras.Sequential):
     
     def fitting_model(self, train_size, train_generator, val_generator, epochs):
         batches = train_size / 100
+        batch_size = 100 # split
         self.fit(
             train_generator,
             epochs=epochs,
+            batch_size=batch_size,
             validation_data=val_generator,
             steps_per_epoch=batches,
         )
